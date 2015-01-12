@@ -1,0 +1,10 @@
+---
+applications:
+- name: dbandphp
+  memory: 128M
+  instances: 1
+  host: dbandphp
+  path: .
+  buildpack: https://github.com/dmikusa-pivotal/cf-php-build-pack.git
+  services: 
+  - mysql
