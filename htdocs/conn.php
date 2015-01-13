@@ -10,5 +10,20 @@ $password = $mysql_config["password"];
 
 $conn = mysql_connect($host . ':' . $port, $username, $password); if(! $conn ) { die('Could not connect: ' . mysql_error()); } 
 mysql_select_db($db);	
+
+$res = mysql_query("SHOW TABLES LIKE \"tbllogin\"");
+$num = mysql_num_rows($res);
+
+if($num == 0) {
+$sql = 
+ "CREATE TABLE `tbllogin` (
+  	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  	`username` varchar(45) NOT NULL,
+  	`psd` varchar(45) NOT NULL,
+  	PRIMARY KEY (`id`)
+	) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+	"; 
+ mysql_query($sql);
+}
 	
 ?>
